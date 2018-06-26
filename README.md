@@ -42,7 +42,8 @@ average price accross all items.
 <pre><code>def predict_price(id):
     try: return avg_prices_df.loc[id]['AvgPrice']
     except: return avg_sale_price</code></pre>
-    
+
+
 <br>
 <h2> Step 3: Use The Function To Predict Prices in the Test Data </h2>
 
@@ -54,8 +55,10 @@ score_gtap = score(test_predicted_prices, test_actual_prices)
 print("The guess-the-average-price model has a RMLSE of {:.4}.".format(score_gtap))</code></pre>
 
 This model earned a RMLSE of 0.3209. For
-comparison, the next lowest score was around .6, nearly twice my result.
+comparison, the next lowest score from my cohort was around .6, nearly twice my result.
   <em>Hurrah!</em>
+  
+(Side note, I have since replaced the .apply(predict_price) with a .map(avg_price_dictionary), which cut the time for this step down from over a minute to under a second.)
 
 <br>
 <h2> Step 4: Linear Regression </h2>
